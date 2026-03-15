@@ -8,3 +8,7 @@ orchestrator_state.json
 session_outputs/
 .slack-channel
 .DS_Store
+old_portfolio/
+web/dist/
+web/.vercel/
+web/.astro/

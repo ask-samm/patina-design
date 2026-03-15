@@ -10,7 +10,25 @@
 
 ## Architecture
 ```
-TBD -- define during Phase 1
+Astro (static) + Tailwind v4 + React island (contact form)
+Deployed to Vercel (Hobby tier, root dir: web/)
+Form backend: Formspree (free tier, 50 submissions/month)
+Fonts: Satoshi (self-hosted WOFF2) + Inter (Fontsource)
+
+web/
+  astro.config.mjs
+  src/
+    pages/index.astro        # Single page
+    layouts/base.astro       # HTML shell, meta, fonts
+    components/              # nav, hero, about, services, portfolio, process, contact, footer
+    content/site.ts          # All text content (single source of truth)
+    styles/global.css        # Tailwind theme tokens, animations
+    assets/                  # Build-time optimized images (hero, portfolio, about)
+  public/
+    fonts/                   # Self-hosted Satoshi (Regular, Medium, Bold WOFF2)
+    favicon.svg
+    robots.txt
+  vercel.json                # Security headers, caching
 ```
 
 ## Git
@@ -22,17 +40,29 @@ TBD -- define during Phase 1
 |------|---------|
 | CLAUDE.md | Project instructions (this file) |
 | PROJECT.md | Phase tracker, decisions, backlog |
-| briefs/ | Phase briefs |
+| Patina_Design_CLAUDE.md | Brand guidelines, voice, visual direction |
+| briefs/ | Phase briefs (1, 2, 3, 3.5, 4, 5, 6) |
+| web/src/content/site.ts | All site copy (single source of truth) |
+| web/src/styles/global.css | Tailwind theme tokens, animations |
+| web/src/components/ | All section components |
 
 ## Environment Variables
 | Variable | Required | Environment | Safety |
 |----------|----------|-------------|--------|
-<!-- Fill during Phase 1: mark each as TEST/PROD and read-only vs read-write -->
+| `PUBLIC_FORMSPREE_ID` | Yes | Vercel | PROD, write (form submissions) |
+
+**Environments:** Single environment (Vercel Hobby). No staging. Pushing to main deploys to production.
+**Safe for testing:** Local dev server (`npm run dev` in web/). No external writes without Formspree ID.
 
 ## Cost Model
-<!-- Fill during Phase 1 (guardrail #11): -->
-<!-- | Service | Pricing Model | Current Plan | Est. Monthly Cost | -->
-<!-- Flag any usage-based APIs. Automated/proactive features need explicit cost modelling. -->
+| Service | Pricing Model | Current Plan | Est. Monthly Cost |
+|---------|---------------|-------------|-------------------|
+| Vercel | Tier-based | Hobby (free) | $0 |
+| Formspree | Usage-based | Free (50/month) | $0 |
+| Satoshi (self-hosted) | Free | Free | $0 |
+| Inter (Fontsource) | Self-hosted | Free | $0 |
+
+**Total: $0/month.** No usage-based cost risk. Formspree limit (50/month) sufficient for launch.
 
 ## Shared Context (read when relevant)
 - `~/shared-ai-context/tools-and-access.md` -- API/credential work

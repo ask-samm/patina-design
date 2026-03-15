@@ -1,0 +1,219 @@
+---
+import { Image } from "astro:assets";
+import { nav, siteConfig } from "../content/site";
+import logoImage from "../assets/about/logo.jpeg";
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300"
+>
+  <nav
+    class="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-5"
+    aria-label="Main navigation"
+  >
+    <a
+      href="#home"
+      class="block"
+      aria-label="Patina Design, back to top"
+    >
+      <Image
+        src={logoImage}
+        alt="Patina Design"
+        class="h-14 w-auto mix-blend-multiply"
+        widths={[140, 280]}
+        sizes="140px"
+        loading="eager"
+        quality={90}
+      />
+    </a>
+
+    <!-- Desktop nav -->
+    <ul class="hidden gap-10 md:flex" role="list">
+      {
+        nav.links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="nav-link relative font-heading text-xs font-normal uppercase tracking-[0.2em] text-indigo-batik transition-colors duration-200 hover:text-copper-pot"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-toggle"
+      class="flex h-11 w-11 flex-col items-center justify-center gap-1.5 md:hidden"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="block h-0.5 w-6 bg-indigo-batik transition-all duration-200"></span>
+      <span class="block h-0.5 w-6 bg-indigo-batik transition-all duration-200"></span>
+      <span class="block h-0.5 w-6 bg-indigo-batik transition-all duration-200"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 z-40 flex hidden flex-col items-center justify-center bg-white/95 backdrop-blur-sm"
+    role="dialog"
+    aria-label="Mobile navigation"
+  >
+    <button
+      id="menu-close"
+      class="absolute top-6 right-6 flex h-11 w-11 items-center justify-center text-indigo-batik"
+      aria-label="Close menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <Image
+      src={logoImage}
+      alt="Patina Design"
+      class="mb-10 h-12 w-auto mix-blend-multiply"
+      widths={[160]}
+      sizes="160px"
+      loading="lazy"
+      quality={90}
+    />
+    <ul class="flex flex-col items-center gap-8" role="list">
+      {
+        nav.links.map((link, i) => (
+          <li>
+            <a
+              href={link.href}
+              class="mobile-nav-link font-heading text-xl font-normal uppercase tracking-[0.15em] text-indigo-batik transition-all duration-300 hover:text-copper-pot"
+              style={`--reveal-delay: ${i * 0.06}s`}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</header>
+
+<style>
+  /* Nav link hover underline */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-copper-pot);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.text-copper-pot::after {
+    width: 100%;
+  }
+</style>
+
+<script>
+  const header = document.getElementById("site-header");
+  const menuToggle = document.getElementById("menu-toggle");
+  const menuClose = document.getElementById("menu-close");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+
+  // Scroll: add shadow on scroll
+  function updateHeader() {
+    if (!header) return;
+    if (window.scrollY > 50) {
+      header.classList.add("shadow-sm");
+    } else {
+      header.classList.remove("shadow-sm");
+    }
+  }
+  window.addEventListener("scroll", updateHeader, { passive: true });
+  updateHeader();
+
+  // Mobile menu
+  function openMenu() {
+    mobileMenu?.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    menuToggle?.setAttribute("aria-expanded", "true");
+    menuClose?.focus();
+  }
+  function closeMenu() {
+    mobileMenu?.classList.add("hidden");
+    document.body.style.overflow = "";
+    menuToggle?.setAttribute("aria-expanded", "false");
+    menuToggle?.focus();
+  }
+  menuToggle?.addEventListener("click", openMenu);
+  menuClose?.addEventListener("click", closeMenu);
+  mobileLinks.forEach((link) => link.addEventListener("click", closeMenu));
+
+  // Escape key closes mobile menu
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !mobileMenu?.classList.contains("hidden")) {
+      closeMenu();
+    }
+  });
+
+  // Focus trap within mobile menu
+  mobileMenu?.addEventListener("keydown", (e) => {
+    if (e.key !== "Tab") return;
+    const focusable = mobileMenu.querySelectorAll<HTMLElement>(
+      'button, a[href], [tabindex]:not([tabindex="-1"])'
+    );
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
+
+  // Active nav state on scroll
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach((link) => {
+            const href = link.getAttribute("href");
+            if (href === `#${id}`) {
+              link.classList.add("text-copper-pot");
+            } else {
+              link.classList.remove("text-copper-pot");
+            }
+          });
+        }
+      });
+    },
+    { rootMargin: "-40% 0px -60% 0px" }
+  );
+
+  sections.forEach((section) => sectionObserver.observe(section));
+</script>

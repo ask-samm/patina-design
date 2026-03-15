@@ -1,0 +1,110 @@
+---
+import { Image } from "astro:assets";
+import { hero } from "../content/site";
+import heroBedroom from "../assets/hero/hero-bedroom.jpeg";
+import heroKitchen from "../assets/hero/hero-kitchen.jpeg";
+import heroSketch from "../assets/hero/hero-sketch.jpeg";
+import heroMoodboard from "../assets/hero/hero-moodboard.png";
+---
+
+<section id="home" class="pt-28 md:pt-36 pb-20 md:pb-28">
+  <div class="mx-auto max-w-[1200px] px-6">
+    <div class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
+      <!-- Text side -->
+      <div class="order-2 md:order-1">
+        <h1
+          class="hero-entrance font-heading text-[clamp(2.25rem,5vw,3.5rem)] leading-[1.1] font-medium tracking-[-0.02em] text-indigo-batik"
+          style="animation-delay: 0.3s"
+        >
+          {hero.headline}
+        </h1>
+        <p
+          class="hero-entrance mt-6 text-[clamp(1rem,1.6vw,1.2rem)] leading-relaxed text-indigo-batik/60"
+          style="animation-delay: 0.5s"
+        >
+          {hero.supporting}
+        </p>
+        <div class="hero-entrance mt-10 flex flex-wrap gap-4" style="animation-delay: 0.7s">
+          <a
+            href={hero.primaryCta.href}
+            class="inline-flex items-center rounded-full bg-copper-pot px-8 py-4 font-heading text-sm font-medium text-white transition-all duration-300 hover:bg-copper-pot/90 hover:shadow-lg hover:shadow-copper-pot/20"
+          >
+            {hero.primaryCta.label}
+          </a>
+          <a
+            href={hero.secondaryCta.href}
+            class="inline-flex items-center rounded-full border-2 border-indigo-batik/20 px-8 py-4 font-heading text-sm font-medium text-indigo-batik transition-all duration-300 hover:border-indigo-batik/40 hover:bg-indigo-batik/5"
+          >
+            {hero.secondaryCta.label}
+          </a>
+        </div>
+      </div>
+
+      <!-- Image collage -->
+      <div class="hero-entrance order-1 md:order-2 hero-collage" style="animation-delay: 0.2s">
+        <div class="grid grid-cols-12 grid-rows-12 gap-3 md:gap-4">
+          {/* Bedroom — large, top-left */}
+          <div class="col-span-7 row-span-6 overflow-hidden rounded-2xl">
+            <Image
+              src={heroBedroom}
+              alt="Contemporary bedroom interior with artful styling"
+              class="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+              widths={[300, 500]}
+              sizes="(max-width: 768px) 58vw, 29vw"
+              loading="eager"
+              quality={80}
+            />
+          </div>
+          {/* Kitchen — tall, top-right */}
+          <div class="col-span-5 row-span-7 overflow-hidden rounded-2xl">
+            <Image
+              src={heroKitchen}
+              alt="Artisan kitchen with handmade tile and marble"
+              class="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+              widths={[300, 500]}
+              sizes="(max-width: 768px) 42vw, 21vw"
+              loading="eager"
+              quality={80}
+            />
+          </div>
+          {/* Sketch — wide, bottom-left */}
+          <div class="col-span-5 row-span-6 overflow-hidden rounded-2xl">
+            <Image
+              src={heroSketch}
+              alt="Interior design concept sketch for a display unit"
+              class="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+              widths={[300, 500]}
+              sizes="(max-width: 768px) 42vw, 21vw"
+              loading="eager"
+              quality={75}
+            />
+          </div>
+          {/* Moodboard — bottom-right */}
+          <div class="col-span-7 row-span-5 overflow-hidden rounded-2xl">
+            <Image
+              src={heroMoodboard}
+              alt="Material and colour concept board for a residential project"
+              class="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+              widths={[300, 500]}
+              sizes="(max-width: 768px) 58vw, 29vw"
+              loading="eager"
+              quality={80}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-collage {
+    aspect-ratio: 1 / 1.05;
+  }
+
+  @media (min-width: 768px) {
+    .hero-collage {
+      aspect-ratio: 1 / 1.1;
+    }
+  }
+</style>

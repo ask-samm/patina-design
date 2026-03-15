@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets";
+import { portfolio } from "../content/site";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/portfolio/*.*",
+  { eager: true }
+);
+
+function getImage(slug: string): ImageMetadata | undefined {
+  for (const [path, mod] of Object.entries(images)) {
+    if (path.includes(slug)) return mod.default;
+  }
+  return undefined;
+}
+
+// Show first 8 projects for a balanced grid
+const displayProjects = portfolio.projects.slice(0, 8);
+---
+
+<section id="portfolio" class="bg-white py-28 md:py-40">
+  <div class="mx-auto max-w-[1200px] px-6">
+    <div class="reveal">
+      <p class="section-label">{portfolio.label}</p>
+      <h2 class="mt-5 font-heading text-[clamp(2rem,4vw,2.75rem)] leading-[1.12] font-medium tracking-[-0.02em] text-indigo-batik">
+        {portfolio.heading}
+      </h2>
+      <p class="mt-2 font-heading text-lg text-jasper-stone tracking-wide">{portfolio.tagline}</p>
+    </div>
+    <div class="mt-14 grid gap-4 md:grid-cols-2">
+      {
+        displayProjects.map((project, i) => {
+          const img = getImage(project.image);
+          return (
+            <div
+              class:list={[
+                "reveal-scale group relative overflow-hidden rounded-2xl",
+                i === 0 || i === 5 ? "md:row-span-2" : "",
+              ]}
+              style={`--reveal-delay: ${i * 0.06}s`}
+            >
+              {img ? (
+                <Image
+                  src={img}
+                  alt={`${project.name} interior design project`}
+                  class="aspect-[3/2] h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  widths={[400, 600, 800]}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
+                  quality={80}
+                />
+              ) : (
+                <div class="flex aspect-[3/2] items-center justify-center bg-pink-shadow/30 rounded-2xl">
+                  <span class="text-indigo-batik/40">Image coming soon</span>
+                </div>
+              )}
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-indigo-batik/60 to-transparent p-6">
+                <h3 class="font-heading text-base font-medium text-white tracking-wide">
+                  {project.name}
+                </h3>
+                <p class="text-sm text-white/60">
+                  {project.category}
+                  {project.collaborator ? ` · ${project.collaborator}` : ""}
+                </p>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+    <div class="reveal mt-14 text-center" style="--reveal-delay: 0.5s">
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-2 font-heading text-sm font-medium text-copper-pot transition-colors duration-200 hover:text-copper-pot/70"
+      >
+        Start a conversation
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+      </a>
+    </div>
+  </div>
+</section>

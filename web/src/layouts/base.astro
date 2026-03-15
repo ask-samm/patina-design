@@ -1,0 +1,101 @@
+---
+import "../styles/global.css";
+import { siteConfig } from "../content/site";
+
+const siteUrl = "https://www.patinadesign.uk";
+const pageTitle = `${siteConfig.name} — ${siteConfig.tagline}`;
+const pageDescription =
+  "Patina Design creates modern interiors that feel personal, refined, and deeply considered. Interior design studio based in London.";
+const ogImageUrl = `${siteUrl}/og-image.jpg`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={siteUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content="Thoughtful design, timeless spaces guided by your story." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" href="/fonts/Satoshi-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Satoshi-Medium.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Satoshi-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <title>{pageTitle}</title>
+
+    <!-- LocalBusiness + Service structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "InteriorDesignStudio",
+      "name": "Patina Design",
+      "description": pageDescription,
+      "url": siteUrl,
+      "email": siteConfig.email,
+      "image": ogImageUrl,
+      "sameAs": [siteConfig.instagram, siteConfig.linkedin],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "London",
+        "addressCountry": "GB",
+      },
+      "areaServed": [
+        { "@type": "City", "name": "London" },
+        { "@type": "Country", "name": "United Kingdom" },
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Aysel Selimbeyoglu",
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Interior Design Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interior Design and Architecture" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Furniture, Fittings and Equipment" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Installation and Styling" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Site Support and Procurement" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technical Design Packages" } },
+        ],
+      },
+    })} />
+  </head>
+  <body class="bg-white">
+    <a href="#main" class="skip-to-content">Skip to content</a>
+    <slot />
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document
+        .querySelectorAll(".reveal, .reveal-scale")
+        .forEach((el) => {
+          observer.observe(el);
+        });
+    </script>
+  </body>
+</html>

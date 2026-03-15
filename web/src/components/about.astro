@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+import { about } from "../content/site";
+import founderImage from "../assets/about/founder-illustration.jpeg";
+---
+
+<section id="about" class="bg-pink-shadow/10 py-28 md:py-40">
+  <div class="mx-auto max-w-[1200px] px-6">
+    <div class="grid items-center gap-12 md:grid-cols-[55%_1fr] md:gap-20">
+      <div>
+        <p class="reveal section-label">{about.label}</p>
+        <h2
+          class="reveal mt-4 font-heading text-[clamp(2rem,4vw,2.75rem)] leading-[1.12] font-medium tracking-[-0.01em] text-indigo-batik"
+          style="--reveal-delay: 0.1s"
+        >
+          {about.heading}
+        </h2>
+        {about.paragraphs.map((p, i) => (
+          <p
+            class:list={[
+              "reveal mt-5 leading-relaxed",
+              i === 0 ? "text-indigo-batik text-lg" : "text-indigo-batik/70",
+            ]}
+            style={`--reveal-delay: ${0.15 + i * 0.05}s`}
+          >
+            {p}
+          </p>
+        ))}
+        <div class="reveal mt-8" style="--reveal-delay: 0.3s">
+          <p class="font-heading font-medium text-copper-pot">{about.founder.name}</p>
+          <p class="text-sm text-jasper-stone">{about.founder.title}</p>
+        </div>
+        {about.credentials.map((cred) => (
+          <p
+            class="reveal mt-4 inline-block rounded-full bg-copper-pot/10 px-4 py-1.5 text-xs font-medium tracking-wide text-copper-pot"
+            style="--reveal-delay: 0.35s"
+          >
+            {cred}
+          </p>
+        ))}
+      </div>
+      <div class="reveal-scale" style="--reveal-delay: 0.1s">
+        <div class="about-image-wrapper">
+          <Image
+            src={founderImage}
+            alt={`${about.founder.name}, ${about.founder.title} at Patina Design`}
+            class="w-full object-cover"
+            widths={[400, 600, 800]}
+            sizes="(max-width: 768px) 100vw, 45vw"
+            loading="lazy"
+            quality={80}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-image-wrapper {
+    -webkit-mask-image: radial-gradient(
+      ellipse 75% 70% at 50% 48%,
+      black 25%,
+      rgba(0, 0, 0, 0.7) 40%,
+      rgba(0, 0, 0, 0.4) 55%,
+      rgba(0, 0, 0, 0.15) 68%,
+      rgba(0, 0, 0, 0.05) 76%,
+      transparent 84%
+    );
+    mask-image: radial-gradient(
+      ellipse 75% 70% at 50% 48%,
+      black 25%,
+      rgba(0, 0, 0, 0.7) 40%,
+      rgba(0, 0, 0, 0.4) 55%,
+      rgba(0, 0, 0, 0.15) 68%,
+      rgba(0, 0, 0, 0.05) 76%,
+      transparent 84%
+    );
+  }
+</style>
