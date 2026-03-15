@@ -1,0 +1,10 @@
+node_modules/
+.env
+*.pyc
+__pycache__/
+outputs/
+*.log
+orchestrator_state.json
+session_outputs/
+.slack-channel
+.DS_Store
