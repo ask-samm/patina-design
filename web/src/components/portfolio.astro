@@ -43,7 +43,7 @@ const displayProjects = portfolio.projects.slice(0, 8);
                 <Image
                   src={img}
                   alt={project.alt || `${project.name} interior design project`}
-                  class="aspect-[3/2] h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  class="aspect-[3/2] h-full w-full object-cover"
                   widths={[400, 600, 800]}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"
@@ -54,7 +54,7 @@ const displayProjects = portfolio.projects.slice(0, 8);
                   <span class="text-indigo-batik/40">Image coming soon</span>
                 </div>
               )}
-              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-indigo-batik/60 to-transparent p-6">
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-indigo-batik/60 to-transparent p-6 opacity-0 transition-opacity duration-400 group-hover:opacity-100">
                 <h3 class="font-heading text-base font-medium text-white tracking-wide">
                   {project.name}
                 </h3>

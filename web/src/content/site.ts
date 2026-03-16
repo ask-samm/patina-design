@@ -18,7 +18,7 @@ export const nav = {
 
 export const hero = {
   headline: "Thoughtful design, timeless spaces guided by your story.",
-  supporting: "Empathy in design. Simplicity in form. Care in every detail.",
+  supporting: "London-based interior design for homes, restaurants, and retail spaces that feel as good as they look.",
   primaryCta: { label: "Book a Consultation", href: "#contact" },
   secondaryCta: { label: "View Portfolio", href: "#portfolio" },
 };
@@ -27,7 +27,7 @@ export const about = {
   label: "ABOUT",
   heading: "Spaces that feel right",
   paragraphs: [
-    "Patina Design is a London-based interior design studio creating spaces that look beautiful and feel right. Our approach is honest, balanced, and personal.",
+    "Patina Design is a London-based interior design studio. The work is honest, balanced, and personal, built around how you actually live or host, not how spaces are supposed to look.",
     "With a strong foundation in interior architecture and product design, we connect people to their environments through refined and purposeful design.",
     "Every project begins with listening. We take the time to understand your daily rhythms, personal values, and individual style. From that, we create interiors that reflect who you are, spaces that are functional, aesthetic, and intuitively designed.",
   ],
@@ -40,7 +40,7 @@ export const about = {
 
 export const services = {
   label: "SERVICES",
-  heading: "What we do",
+  heading: "How we can help",
   intro:
     "Patina Design covers every stage of your project, from the first creative conversation through to technical drawings, procurement, and final installation. You get one point of contact throughout.",
   items: [
@@ -81,7 +81,7 @@ export const services = {
 export const portfolio = {
   label: "PORTFOLIO",
   heading: "Selected work",
-  tagline: "Beyond Architecture. Creating Experiences.",
+  tagline: "Residential, commercial, and hospitality projects across the UK and beyond.",
   projects: [
     {
       name: "Searcys at RICS",
@@ -198,11 +198,11 @@ export const process = {
       number: "04",
       name: "Realize",
       description:
-        "As construction nears completion, we conduct a final walkthrough with you to ensure every detail aligns with our shared vision.",
+        "We manage delivery, oversee installation, and walk through the finished space with you to make sure every detail lands as intended.",
     },
   ],
-  bridging: "Ready to start your project?",
-  cta: { label: "Get in Touch", href: "#contact" },
+  bridging: "Every project starts with a conversation.",
+  cta: { label: "Book a Consultation", href: "#contact" },
 };
 
 export const contact = {
