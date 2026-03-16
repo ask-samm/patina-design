@@ -42,32 +42,37 @@ export const services = {
   label: "SERVICES",
   heading: "What we do",
   intro:
-    "From concept to completion, Patina Design provides thoughtful guidance at every stage of your project, from initial creative direction and detailed architectural drawings to the full installation of interiors.",
+    "Patina Design covers every stage of your project, from the first creative conversation through to technical drawings, procurement, and final installation. You get one point of contact throughout.",
   items: [
     {
+      number: "01",
       name: "Interior Design and Architecture",
       description:
-        "The team creates tailored interiors from start to finish by combining creative concepts, space planning, technical layouts, and detailed design documentation. Each project is thoughtfully curated to feel personal, timeless, and effortlessly functional.",
+        "Creative concepts, space planning, technical layouts, and detailed documentation to shape interiors that feel personal, timeless, and functional.",
     },
     {
+      number: "02",
       name: "Furniture, Fittings and Equipment",
       description:
-        "Patina Design curates bespoke furniture, finishes, lighting, artwork, and all specifications to ensure every element complements the overall design and enhances the personality of each space.",
+        "Bespoke furniture, finishes, lighting, and artwork selected and specified so every element complements the overall design.",
     },
     {
+      number: "03",
       name: "Installation and Styling",
       description:
-        "Patina Design brings visions to life through meticulous installation, final dressing, styling, and photography preparation to ensure every detail feels polished, purposeful, and uniquely tailored.",
+        "Meticulous installation, final dressing, and styling to ensure every detail is polished and purposeful.",
     },
     {
+      number: "04",
       name: "Site Support and Procurement",
       description:
-        "Patina Design oversees every delivery stage with supervision, quality control, tendering, and sourcing to ensure seamless execution and the highest standards.",
+        "On-site supervision, quality control, tendering, and sourcing at every delivery stage.",
     },
     {
+      number: "05",
       name: "Technical Design Packages",
       description:
-        "Comprehensive technical drawings, construction documentation, and specification packages delivered as a standalone service for projects requiring precise architectural detailing.",
+        "Construction documentation, technical drawings, and specification packages as a standalone service for projects requiring precise architectural detailing.",
     },
   ],
   cta: { label: "Discuss Your Project", href: "#contact" },
@@ -193,7 +198,7 @@ export const contact = {
   heading: "Have something in mind?",
   subheading: "Let's talk.",
   intro:
-    "Tell us about your project and we'll arrange an initial conversation.",
+    "Tell us a little about your project. We typically reply within one working day to arrange an initial conversation.",
   location: "Based in London, working across the UK.",
   email: "info@patinadesign.uk",
 };

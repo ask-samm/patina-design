@@ -37,9 +37,10 @@ import { process as processData } from "../content/site";
       </p>
       <a
         href={processData.cta.href}
-        class="mt-6 inline-flex items-center rounded-full border-2 border-copper-pot px-8 py-4 font-heading text-sm font-medium text-copper-pot transition-all duration-300 hover:bg-copper-pot hover:text-white"
+        class="mt-6 inline-flex items-center gap-2 font-heading text-sm font-medium text-copper-pot transition-colors duration-200 hover:text-copper-pot/70"
       >
         {processData.cta.label}
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
       </a>
     </div>
   </div>

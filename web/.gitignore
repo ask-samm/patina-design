@@ -20,6 +20,9 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# dev-only review tool (symlinked from change-review project)
+public/review.html
+
 # jetbrains setting folder
 .idea/
 .vercel

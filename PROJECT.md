@@ -60,6 +60,41 @@
 - Instagram feed embed (currently link only)
 - Portfolio project detail pages (if scope expands beyond single page)
 
+### Change-Review Tool — Vision & Roadmap (cross-project, lives in ~/Developer/Projects/change-review)
+
+**Vision:** Evolve the review UI into the ultimate collaborative interface between a human and Claude Code for all UI/UX work. Not just audit findings, but any visual iteration: layout exploration, color palette testing, copy direction, component variants. The tool becomes the primary way to give visual direction to Claude Code.
+
+**Design Inspiration Library:** Build a curated library of favorite brands, websites, presentations, and design systems at `~/shared-ai-context/design-library/`. Markdown files with YAML frontmatter per reference (colors, typography, layout patterns, mood tags, "what works" notes). Auto-generated index for fast LLM lookup. Claude Code consults the library when generating proposals so decisions and iterations reflect accumulated taste, not just generic knowledge. Claude-assisted curation workflow: fetch URL, extract design tokens, human adds subjective notes.
+
+**Phase 1 — Dynamic Proposal Pipeline:**
+- Replace static HTML generation with a live proposals API on the companion server (GET/POST/PATCH /api/proposals)
+- SSE stream for real-time push to browser (no polling, no page refresh)
+- Template fetches proposals on load instead of embedding baked-in data
+- Ad-hoc proposals: human says "make the hero bigger" in terminal, Claude POSTs variant proposals to server, browser shows them instantly
+- Conversation threading on proposals (collapsible thread per card, human replies feed back to Claude)
+- Claude Code hooks for post-edit browser refresh
+
+**Phase 2 — Multi-Variant Exploration & Component Isolation:**
+- Variant mutations: CSS (existing) + HTML patches + isolated component render
+- Side-by-side comparison mode in modal (split iframes)
+- Optional Puppeteer thumbnails for variant cards
+- Component isolation preview (extract single section, render in clean harness)
+- Proposal template generators for common explorations (color, typography, spacing, layout)
+
+**Phase 3 — Design Intelligence Layer:**
+- Structured brand context file (machine-readable tokens from brand guidelines)
+- Reference image integration on proposal cards (inspiration sources)
+- Taste profile: analyze decision history to bias proposals toward likely-approved options
+- Auto a11y/perf impact annotations on every proposal (contrast ratios, CLS risk)
+
+**Phase 4 — Tight Loop & Session Continuity:**
+- Bidirectional live loop: propose → review → implement → hot-reload → verify, no manual refresh
+- Session persistence with history archive
+- Click-to-annotate in iframe preview (select element, type comment)
+- Export: Figma tokens, commit message generation, markdown session report
+
+**Architecture principles:** Single HTML file + single Node server, no build step, no dependencies. File-based source of truth (proposals.json, decisions.json). SSE for server-to-browser, POST for browser-to-server. Same proposal schema for audit findings and ad-hoc changes.
+
 ## Lessons
 - Old portfolio HTML uses different project names than plan suggested. Always use actual saved content as source of truth.
 

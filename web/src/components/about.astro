@@ -58,23 +58,24 @@ import founderImage from "../assets/about/founder-illustration.jpeg";
 
 <style>
   .about-image-wrapper {
-    -webkit-mask-image: radial-gradient(
-      ellipse 75% 70% at 50% 48%,
-      black 25%,
-      rgba(0, 0, 0, 0.7) 40%,
-      rgba(0, 0, 0, 0.4) 55%,
-      rgba(0, 0, 0, 0.15) 68%,
-      rgba(0, 0, 0, 0.05) 76%,
-      transparent 84%
-    );
-    mask-image: radial-gradient(
-      ellipse 75% 70% at 50% 48%,
-      black 25%,
-      rgba(0, 0, 0, 0.7) 40%,
-      rgba(0, 0, 0, 0.4) 55%,
-      rgba(0, 0, 0, 0.15) 68%,
-      rgba(0, 0, 0, 0.05) 76%,
-      transparent 84%
-    );
+    position: relative;
+    max-width: 85%;
+  }
+
+  .about-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    background: var(--color-pink-shadow);
+    opacity: 0.35;
+  }
+
+  .about-image-wrapper img,
+  .about-image-wrapper picture {
+    position: relative;
+    z-index: 1;
   }
 </style>
