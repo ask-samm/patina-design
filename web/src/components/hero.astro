@@ -11,15 +11,15 @@ import heroMoodboard from "../assets/hero/hero-moodboard.png";
   <div class="mx-auto max-w-[1200px] px-6">
     <div class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
       <!-- Text side -->
-      <div class="order-2 md:order-1">
+      <div>
         <h1
           class="hero-entrance font-heading text-[clamp(2.25rem,5vw,3.5rem)] leading-[1.1] font-medium tracking-[-0.02em] text-indigo-batik"
-          style="animation-delay: 0.3s"
+          style="animation-delay: 0s"
         >
           {hero.headline}
         </h1>
         <p
-          class="hero-entrance mt-6 text-[clamp(1rem,1.6vw,1.2rem)] leading-relaxed text-indigo-batik/60"
+          class="hero-entrance mt-6 text-[clamp(1rem,1.6vw,1.2rem)] leading-relaxed text-indigo-batik/80"
           style="animation-delay: 0.5s"
         >
           {hero.supporting}
@@ -41,17 +41,18 @@ import heroMoodboard from "../assets/hero/hero-moodboard.png";
       </div>
 
       <!-- Image collage -->
-      <div class="hero-entrance order-1 md:order-2 hero-collage" style="animation-delay: 0.2s">
+      <div class="hero-entrance hero-collage" style="animation-delay: 0.2s">
         <div class="grid grid-cols-12 grid-rows-12 gap-3 md:gap-4">
           {/* Bedroom — large, top-left */}
           <div class="col-span-7 row-span-6 overflow-hidden rounded-2xl">
             <Image
               src={heroBedroom}
               alt="Contemporary bedroom interior with artful styling"
-              class="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
-              widths={[300, 500]}
+              class="h-full w-full object-cover"
+              widths={[300, 500, 800]}
               sizes="(max-width: 768px) 58vw, 29vw"
               loading="eager"
+              fetchpriority="high"
               quality={80}
             />
           </div>
@@ -60,7 +61,7 @@ import heroMoodboard from "../assets/hero/hero-moodboard.png";
             <Image
               src={heroKitchen}
               alt="Artisan kitchen with handmade tile and marble"
-              class="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+              class="h-full w-full object-cover"
               widths={[300, 500]}
               sizes="(max-width: 768px) 42vw, 21vw"
               loading="eager"
@@ -72,10 +73,10 @@ import heroMoodboard from "../assets/hero/hero-moodboard.png";
             <Image
               src={heroSketch}
               alt="Interior design concept sketch for a display unit"
-              class="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+              class="h-full w-full object-cover"
               widths={[300, 500]}
               sizes="(max-width: 768px) 42vw, 21vw"
-              loading="eager"
+              loading="lazy"
               quality={75}
             />
           </div>
@@ -84,10 +85,10 @@ import heroMoodboard from "../assets/hero/hero-moodboard.png";
             <Image
               src={heroMoodboard}
               alt="Material and colour concept board for a residential project"
-              class="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+              class="h-full w-full object-cover"
               widths={[300, 500]}
               sizes="(max-width: 768px) 58vw, 29vw"
-              loading="eager"
+              loading="lazy"
               quality={80}
             />
           </div>

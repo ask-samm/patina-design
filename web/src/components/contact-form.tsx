@@ -38,7 +38,7 @@ export default function ContactForm() {
         <p className="font-heading text-lg font-medium text-indigo-batik">
           Thank you for your message.
         </p>
-        <p className="mt-2 text-jasper-stone">
+        <p className="mt-2 text-indigo-batik/80">
           We will be in touch soon.
         </p>
       </div>
@@ -46,12 +46,13 @@ export default function ContactForm() {
   }
 
   const inputClasses =
-    "mt-1.5 block w-full rounded-lg border border-indigo-batik/12 bg-white px-3.5 py-2.5 text-sm text-indigo-batik outline-none transition-all duration-200 focus:border-copper-pot focus:ring-2 focus:ring-copper-pot/20";
+    "mt-1.5 block w-full rounded-lg border border-indigo-batik/12 bg-white px-3.5 py-2.5 text-base text-indigo-batik outline-none transition-all duration-200 focus:border-copper-pot focus:ring-2 focus:ring-copper-pot focus:ring-offset-2";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      <p className="text-xs text-indigo-batik/60">* Required fields</p>
       <div>
-        <label htmlFor="name" className="block text-xs uppercase tracking-[0.15em] font-medium text-jasper-stone">
+        <label htmlFor="name" className="block text-xs uppercase tracking-[0.2em] font-medium text-indigo-batik/80">
           Name <span className="text-copper-pot">*</span>
         </label>
         <input
@@ -64,7 +65,7 @@ export default function ContactForm() {
         />
       </div>
       <div>
-        <label htmlFor="email" className="block text-xs uppercase tracking-[0.15em] font-medium text-jasper-stone">
+        <label htmlFor="email" className="block text-xs uppercase tracking-[0.2em] font-medium text-indigo-batik/80">
           Email <span className="text-copper-pot">*</span>
         </label>
         <input
@@ -77,7 +78,7 @@ export default function ContactForm() {
         />
       </div>
       <div>
-        <label htmlFor="phone" className="block text-xs uppercase tracking-[0.15em] font-medium text-jasper-stone">
+        <label htmlFor="phone" className="block text-xs uppercase tracking-[0.2em] font-medium text-indigo-batik/80">
           Phone
         </label>
         <input
@@ -89,7 +90,7 @@ export default function ContactForm() {
         />
       </div>
       <div>
-        <label htmlFor="message" className="block text-xs uppercase tracking-[0.15em] font-medium text-jasper-stone">
+        <label htmlFor="message" className="block text-xs uppercase tracking-[0.2em] font-medium text-indigo-batik/80">
           Message <span className="text-copper-pot">*</span>
         </label>
         <textarea
@@ -101,7 +102,7 @@ export default function ContactForm() {
         />
       </div>
       {status === "error" && (
-        <p role="alert" className="text-sm text-fireweed">
+        <p role="alert" className="text-sm text-copper-pot">
           Something went wrong. Please try again or email us directly.
         </p>
       )}

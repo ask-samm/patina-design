@@ -9,7 +9,7 @@ import { services } from "../content/site";
       <h2 class="mt-5 font-heading text-[clamp(2rem,4vw,2.75rem)] leading-[1.12] font-medium tracking-[-0.02em] text-indigo-batik">
         {services.heading}
       </h2>
-      <p class="mt-5 max-w-2xl text-lg leading-relaxed text-indigo-batik/60">
+      <p class="mt-5 max-w-2xl text-lg leading-relaxed text-indigo-batik/80">
         {services.intro}
       </p>
     </div>
@@ -20,11 +20,11 @@ import { services } from "../content/site";
             class="reveal rounded-2xl bg-white p-8 transition-shadow duration-300 hover:shadow-sm"
             style={`--reveal-delay: ${i * 0.08}s`}
           >
-            <span class="font-heading text-4xl md:text-5xl font-light text-copper-pot/30">
+            <span class="font-heading text-4xl md:text-5xl font-light text-copper-pot/50">
               {service.number}
             </span>
             <h3 class="mt-4 font-heading text-base font-medium text-indigo-batik">{service.name}</h3>
-            <p class="mt-3 leading-relaxed text-indigo-batik/60">
+            <p class="mt-3 leading-relaxed text-indigo-batik/80">
               {service.description}
             </p>
           </div>

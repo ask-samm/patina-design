@@ -10,15 +10,15 @@ import ContactForm from "./contact-form.tsx";
       <div class="reveal flex flex-col justify-between">
         <div>
           <p class="section-label">{contact.label}</p>
-          <h2 class="mt-4 font-heading text-[clamp(2rem,4vw,2.75rem)] leading-[1.08] font-medium tracking-[-0.02em] text-indigo-batik">
+          <h2 class="mt-5 font-heading text-[clamp(2rem,4vw,2.75rem)] leading-[1.12] font-medium tracking-[-0.02em] text-indigo-batik">
             {contact.heading}
             <br />
             <span class="text-copper-pot">{contact.subheading}</span>
           </h2>
-          <p class="mt-6 text-lg leading-relaxed text-indigo-batik/60">
+          <p class="mt-6 text-lg leading-relaxed text-indigo-batik/80">
             {contact.intro}
           </p>
-          <p class="mt-2 text-sm text-indigo-batik/50">
+          <p class="mt-2 text-sm text-indigo-batik/80">
             {contact.location}
           </p>
         </div>
@@ -34,7 +34,7 @@ import ContactForm from "./contact-form.tsx";
               href={siteConfig.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              class="text-jasper-stone transition-colors duration-200 hover:text-copper-pot"
+              class="p-3 text-indigo-batik/60 transition-colors duration-200 hover:text-copper-pot"
               aria-label="Patina Design on Instagram"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -47,7 +47,7 @@ import ContactForm from "./contact-form.tsx";
               href={siteConfig.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              class="text-jasper-stone transition-colors duration-200 hover:text-copper-pot"
+              class="p-3 text-indigo-batik/60 transition-colors duration-200 hover:text-copper-pot"
               aria-label="Aysel Selimbeyoglu on LinkedIn"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

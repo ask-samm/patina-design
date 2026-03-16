@@ -10,7 +10,7 @@ import founderImage from "../assets/about/founder-illustration.jpeg";
       <div>
         <p class="reveal section-label">{about.label}</p>
         <h2
-          class="reveal mt-4 font-heading text-[clamp(2rem,4vw,2.75rem)] leading-[1.12] font-medium tracking-[-0.01em] text-indigo-batik"
+          class="reveal mt-5 font-heading text-[clamp(2rem,4vw,2.75rem)] leading-[1.12] font-medium tracking-[-0.02em] text-indigo-batik"
           style="--reveal-delay: 0.1s"
         >
           {about.heading}
@@ -19,7 +19,7 @@ import founderImage from "../assets/about/founder-illustration.jpeg";
           <p
             class:list={[
               "reveal mt-5 leading-relaxed",
-              i === 0 ? "text-indigo-batik text-lg" : "text-indigo-batik/70",
+              i === 0 ? "text-indigo-batik text-lg" : "text-indigo-batik/90",
             ]}
             style={`--reveal-delay: ${0.15 + i * 0.05}s`}
           >
@@ -28,7 +28,7 @@ import founderImage from "../assets/about/founder-illustration.jpeg";
         ))}
         <div class="reveal mt-8" style="--reveal-delay: 0.3s">
           <p class="font-heading font-medium text-copper-pot">{about.founder.name}</p>
-          <p class="text-sm text-jasper-stone">{about.founder.title}</p>
+          <p class="text-sm text-indigo-batik/70">{about.founder.title}</p>
         </div>
         {about.credentials.map((cred) => (
           <p
@@ -60,6 +60,8 @@ import founderImage from "../assets/about/founder-illustration.jpeg";
   .about-image-wrapper {
     position: relative;
     max-width: 85%;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
   }
 
   .about-image-wrapper::before {
@@ -71,11 +73,20 @@ import founderImage from "../assets/about/founder-illustration.jpeg";
     height: 100%;
     background: var(--color-pink-shadow);
     opacity: 0.35;
+    border-radius: 1rem;
   }
 
   .about-image-wrapper img,
   .about-image-wrapper picture {
     position: relative;
     z-index: 1;
+    border-radius: 1rem;
+  }
+
+  @media (max-width: 767px) {
+    .about-image-wrapper::before {
+      left: -12px;
+      top: 12px;
+    }
   }
 </style>

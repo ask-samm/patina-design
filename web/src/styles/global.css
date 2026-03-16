@@ -6,8 +6,8 @@
   --color-pink-shadow: #DEC3B9;
   --color-jasper-stone: #8D9E97;
   --color-indigo-batik: #3E5063;
-  --color-fireweed: #a45e60;
   --color-copper-pot: #a45e60;
+  --color-copper-pot-text: #8a4345;
 
   --font-heading: "Satoshi", "Inter Variable", system-ui, sans-serif;
   --font-body: "Inter Variable", system-ui, sans-serif;
@@ -34,7 +34,7 @@ body {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: var(--color-copper-pot);
+  color: var(--color-copper-pot-text);
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -45,7 +45,7 @@ body {
   display: block;
   width: 24px;
   height: 1px;
-  background: var(--color-copper-pot);
+  background: var(--color-copper-pot-text);
 }
 
 /* Scroll reveal animation — supports staggered delays via --reveal-delay */
@@ -90,16 +90,6 @@ body {
 .hero-entrance {
   opacity: 0;
   animation: hero-fade-up 1s ease forwards;
-}
-
-/* Subtle Ken Burns on hero image */
-@keyframes hero-ken-burns {
-  from {
-    transform: scale(1.04);
-  }
-  to {
-    transform: scale(1);
-  }
 }
 
 /* Respect reduced motion */

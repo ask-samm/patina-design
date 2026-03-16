@@ -15,7 +15,7 @@ import logoImage from "../assets/about/logo.jpeg";
     >
       <Image
         src={logoImage}
-        alt="Patina Design"
+        alt=""
         class="h-12 w-auto brightness-0 invert"
         widths={[160]}
         sizes="160px"
@@ -30,7 +30,7 @@ import logoImage from "../assets/about/logo.jpeg";
             <li>
               <a
                 href={link.href}
-                class="font-heading text-xs uppercase tracking-[0.2em] text-white/40 transition-colors duration-200 hover:text-white/70"
+                class="font-heading text-xs uppercase tracking-[0.2em] text-white/70 transition-colors duration-200 hover:text-white"
               >
                 {link.label}
               </a>
@@ -39,13 +39,13 @@ import logoImage from "../assets/about/logo.jpeg";
         }
       </ul>
     </nav>
-    <p class="text-sm text-white/40">London, United Kingdom</p>
+    <p class="text-sm text-white/70">London, United Kingdom</p>
     <div class="flex gap-5">
       <a
         href={siteConfig.instagram}
         target="_blank"
         rel="noopener noreferrer"
-        class="text-white/40 transition-colors duration-200 hover:text-copper-pot"
+        class="p-3 text-white/70 transition-colors duration-200 hover:text-white"
         aria-label="Patina Design on Instagram"
       >
         <svg
@@ -69,7 +69,7 @@ import logoImage from "../assets/about/logo.jpeg";
         href={siteConfig.linkedin}
         target="_blank"
         rel="noopener noreferrer"
-        class="text-white/40 transition-colors duration-200 hover:text-copper-pot"
+        class="p-3 text-white/70 transition-colors duration-200 hover:text-white"
         aria-label="Aysel Selimbeyoglu on LinkedIn"
       >
         <svg
@@ -92,13 +92,13 @@ import logoImage from "../assets/about/logo.jpeg";
         </svg>
       </a>
     </div>
-    <p class="text-xs tracking-[0.1em] text-white/30">{siteConfig.copyright}</p>
-    <p class="text-xs text-white/20">
+    <p class="text-xs tracking-[0.1em] text-white/60">{siteConfig.copyright}</p>
+    <p class="text-xs text-white/50">
       Website created in partnership with <a
         href="https://asksamm.com"
         target="_blank"
         rel="noopener noreferrer"
-        class="underline transition-colors duration-200 hover:text-white/40"
+        class="underline transition-colors duration-200 hover:text-white/70"
       >Ask Samm</a>
     </p>
   </div>

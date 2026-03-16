@@ -19,7 +19,7 @@ import logoImage from "../assets/about/logo.jpeg";
     >
       <Image
         src={logoImage}
-        alt="Patina Design"
+        alt=""
         class="h-14 w-auto mix-blend-multiply"
         widths={[140, 280]}
         sizes="140px"
@@ -63,6 +63,7 @@ import logoImage from "../assets/about/logo.jpeg";
     id="mobile-menu"
     class="fixed inset-0 z-40 flex hidden flex-col items-center justify-center bg-white/95 backdrop-blur-sm"
     role="dialog"
+    aria-modal="true"
     aria-label="Mobile navigation"
   >
     <button
@@ -87,7 +88,7 @@ import logoImage from "../assets/about/logo.jpeg";
     </button>
     <Image
       src={logoImage}
-      alt="Patina Design"
+      alt=""
       class="mb-10 h-12 w-auto mix-blend-multiply"
       widths={[160]}
       sizes="160px"
@@ -128,6 +129,11 @@ import logoImage from "../assets/about/logo.jpeg";
   .nav-link:hover::after,
   .nav-link.text-copper-pot::after {
     width: 100%;
+  }
+
+  .nav-link:focus-visible {
+    outline: 2px solid var(--color-copper-pot);
+    outline-offset: 4px;
   }
 </style>
 
@@ -205,8 +211,10 @@ import logoImage from "../assets/about/logo.jpeg";
             const href = link.getAttribute("href");
             if (href === `#${id}`) {
               link.classList.add("text-copper-pot");
+              link.setAttribute("aria-current", "true");
             } else {
               link.classList.remove("text-copper-pot");
+              link.removeAttribute("aria-current");
             }
           });
         }

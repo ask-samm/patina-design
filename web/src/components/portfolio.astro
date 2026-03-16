@@ -25,7 +25,7 @@ const displayProjects = portfolio.projects.slice(0, 8);
       <h2 class="mt-5 font-heading text-[clamp(2rem,4vw,2.75rem)] leading-[1.12] font-medium tracking-[-0.02em] text-indigo-batik">
         {portfolio.heading}
       </h2>
-      <p class="mt-2 font-heading text-lg text-jasper-stone tracking-wide">{portfolio.tagline}</p>
+      <p class="mt-2 text-lg text-indigo-batik/70 leading-relaxed">{portfolio.tagline}</p>
     </div>
     <div class="mt-14 grid gap-4 md:grid-cols-2">
       {
@@ -42,7 +42,7 @@ const displayProjects = portfolio.projects.slice(0, 8);
               {img ? (
                 <Image
                   src={img}
-                  alt={`${project.name} interior design project`}
+                  alt={project.alt || `${project.name} interior design project`}
                   class="aspect-[3/2] h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                   widths={[400, 600, 800]}
                   sizes="(max-width: 768px) 100vw, 50vw"
