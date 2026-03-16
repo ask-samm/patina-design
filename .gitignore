@@ -1,0 +1,10 @@
+# Dev artifacts
+node_modules/
+web/
+.claude/
+outputs/
+old_portfolio/
+continuation.md
+.slack-channel
+backlog.md
+review.html
