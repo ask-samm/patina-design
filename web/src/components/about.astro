@@ -4,7 +4,7 @@ import { about } from "../content/site";
 import founderImage from "../assets/about/founder-illustration.jpeg";
 ---
 
-<section id="about" class="bg-pink-shadow/10 py-28 md:py-40">
+<section id="about" class="bg-jasper-stone/5 py-28 md:py-40">
   <div class="mx-auto max-w-[1200px] px-6">
     <div class="grid items-center gap-12 md:grid-cols-[55%_1fr] md:gap-20">
       <div>
@@ -30,14 +30,6 @@ import founderImage from "../assets/about/founder-illustration.jpeg";
           <p class="font-heading font-medium text-copper-pot">{about.founder.name}</p>
           <p class="text-sm text-indigo-batik/70">{about.founder.title}</p>
         </div>
-        {about.credentials.map((cred) => (
-          <p
-            class="reveal mt-4 inline-block rounded-full bg-copper-pot/10 px-4 py-1.5 text-xs font-medium tracking-wide text-copper-pot"
-            style="--reveal-delay: 0.35s"
-          >
-            {cred}
-          </p>
-        ))}
       </div>
       <div class="reveal-scale" style="--reveal-delay: 0.1s">
         <div class="about-image-wrapper">
@@ -85,7 +77,7 @@ import founderImage from "../assets/about/founder-illustration.jpeg";
 
   @media (max-width: 767px) {
     .about-image-wrapper::before {
-      left: -12px;
+      left: 0;
       top: 12px;
     }
   }

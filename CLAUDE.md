@@ -32,8 +32,17 @@ web/
 ```
 
 ## Git
-**Remote:** GitHub
-**Branch:** main
+**Remote:** GitHub (ask-samm/patina-design)
+**Branches:**
+- `main` — Source code. Vercel auto-deploys from this branch (root dir: `web/`).
+- `deploy` — Orphan branch with built static files at repo root. Krystal fallback hosting.
+
+**Deploy script:** `~/Developer/tools/deploy-static.sh` rebuilds and updates the `deploy` branch:
+```bash
+git stash --include-untracked
+~/Developer/tools/deploy-static.sh --build-dir web/dist --build-cmd "cd web && npm run build" --exclude "backlog.md review.html"
+git stash pop
+```
 
 ## Key Files
 | File | Purpose |
@@ -53,6 +62,19 @@ web/
 
 **Environments:** Single environment (Vercel Hobby). No staging. Pushing to main deploys to production.
 **Safe for testing:** Local dev server (`npm run dev` in web/). No external writes without Formspree ID.
+
+## Hosting & DNS
+| Service | Role | Details |
+|---------|------|---------|
+| Vercel | Website hosting | Auto-deploys from `main`, root dir `web/`. Domain: patinadesign.uk + www |
+| Krystal | Email + cPanel | MX records (mx1/mx2.krystal.io), SPF, DKIM, DMARC. cPanel subdomains at 77.72.2.136 |
+
+**DNS (managed at Krystal):**
+- `patinadesign.uk` A → `76.76.21.21` (Vercel)
+- `www` A → `76.76.21.21` (Vercel)
+- `mail`, `ftp` A → `77.72.2.136` (Krystal)
+- `cpanel`, `webmail`, `whm`, `webdisk`, `cpcontacts`, `cpcalendars` A → `77.72.2.136` (Krystal)
+- MX → `mx1.krystal.io` (pri 10), `mx2.krystal.io` (pri 20)
 
 ## Cost Model
 | Service | Pricing Model | Current Plan | Est. Monthly Cost |

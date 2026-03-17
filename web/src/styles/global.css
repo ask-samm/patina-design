@@ -40,14 +40,6 @@ body {
   gap: 0.75rem;
 }
 
-.section-label::after {
-  content: "";
-  display: block;
-  width: 24px;
-  height: 1px;
-  background: var(--color-copper-pot-text);
-}
-
 /* Scroll reveal animation — supports staggered delays via --reveal-delay */
 .reveal {
   opacity: 0;

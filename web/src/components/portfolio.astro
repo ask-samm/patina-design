@@ -18,7 +18,7 @@ function getImage(slug: string): ImageMetadata | undefined {
 const displayProjects = portfolio.projects.slice(0, 8);
 ---
 
-<section id="portfolio" class="bg-white py-28 md:py-40">
+<section id="portfolio" class="bg-pink-shadow/5 py-28 md:py-40">
   <div class="mx-auto max-w-[1200px] px-6">
     <div class="reveal">
       <p class="section-label">{portfolio.label}</p>
@@ -31,30 +31,40 @@ const displayProjects = portfolio.projects.slice(0, 8);
       {
         displayProjects.map((project, i) => {
           const img = getImage(project.image);
+          const isFeatured = i === 0 || i === 5;
           return (
             <div
               class:list={[
-                "reveal-scale group relative overflow-hidden rounded-2xl",
-                i === 0 || i === 5 ? "md:row-span-2" : "",
+                "reveal-scale group relative overflow-hidden rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-copper-pot",
+                isFeatured ? "md:row-span-2" : "",
               ]}
               style={`--reveal-delay: ${i * 0.06}s`}
+              tabindex="0"
+              role="figure"
+              aria-label={project.name}
             >
               {img ? (
                 <Image
                   src={img}
                   alt={project.alt || `${project.name} interior design project`}
-                  class="aspect-[3/2] h-full w-full object-cover"
+                  class:list={[
+                    "w-full object-cover md:h-full",
+                    isFeatured ? "aspect-[16/9] md:aspect-auto" : "aspect-[3/2] md:aspect-auto",
+                  ]}
                   widths={[400, 600, 800]}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"
                   quality={80}
                 />
               ) : (
-                <div class="flex aspect-[3/2] items-center justify-center bg-pink-shadow/30 rounded-2xl">
+                <div class:list={[
+                  "flex items-center justify-center bg-pink-shadow/30 rounded-2xl",
+                  isFeatured ? "aspect-[16/9] md:aspect-[3/2]" : "aspect-[3/2]",
+                ]}>
                   <span class="text-indigo-batik/40">Image coming soon</span>
                 </div>
               )}
-              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-indigo-batik/60 to-transparent p-6 opacity-0 transition-opacity duration-400 group-hover:opacity-100">
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-indigo-batik/60 to-transparent p-6 opacity-0 transition-opacity duration-400 max-md:opacity-100 group-hover:opacity-100 group-focus-within:opacity-100">
                 <h3 class="font-heading text-base font-medium text-white tracking-wide">
                   {project.name}
                 </h3>

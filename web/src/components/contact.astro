@@ -3,11 +3,11 @@ import { contact, siteConfig } from "../content/site";
 import ContactForm from "./contact-form.tsx";
 ---
 
-<section id="contact" class="bg-pink-shadow/20 py-28 md:py-40">
+<section id="contact" class="bg-jasper-stone/6 py-28 md:py-40">
   <div class="mx-auto max-w-[1200px] px-6">
     <div class="grid gap-12 md:grid-cols-2 md:gap-20">
       <!-- Left: copy, vertically spread to match form height -->
-      <div class="reveal flex flex-col justify-between">
+      <div class="reveal flex flex-col">
         <div>
           <p class="section-label">{contact.label}</p>
           <h2 class="mt-5 font-heading text-[clamp(2rem,4vw,2.75rem)] leading-[1.12] font-medium tracking-[-0.02em] text-indigo-batik">
@@ -22,7 +22,7 @@ import ContactForm from "./contact-form.tsx";
             {contact.location}
           </p>
         </div>
-        <div class="mt-8 space-y-4">
+        <div class="mt-auto space-y-4 pt-8">
           <a
             href={`mailto:${contact.email}`}
             class="block text-lg text-copper-pot transition-colors hover:underline"
@@ -34,7 +34,7 @@ import ContactForm from "./contact-form.tsx";
               href={siteConfig.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              class="p-3 text-indigo-batik/60 transition-colors duration-200 hover:text-copper-pot"
+              class="p-3 text-indigo-batik transition-colors duration-200 hover:text-copper-pot"
               aria-label="Patina Design on Instagram"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -47,7 +47,7 @@ import ContactForm from "./contact-form.tsx";
               href={siteConfig.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              class="p-3 text-indigo-batik/60 transition-colors duration-200 hover:text-copper-pot"
+              class="p-3 text-indigo-batik transition-colors duration-200 hover:text-copper-pot"
               aria-label="Aysel Selimbeyoglu on LinkedIn"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

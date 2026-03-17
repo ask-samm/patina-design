@@ -9,15 +9,15 @@ export const siteConfig = {
 
 export const nav = {
   links: [
-    { label: "About", href: "#about" },
     { label: "Portfolio", href: "#portfolio" },
+    { label: "About", href: "#about" },
     { label: "Services", href: "#services" },
     { label: "Contact", href: "#contact" },
   ],
 };
 
 export const hero = {
-  headline: "Thoughtful design, timeless spaces guided by your story.",
+  headline: "Thoughtful design, timeless spaces guided by your story",
   supporting: "London-based interior design for homes, restaurants, and retail spaces that feel as good as they look.",
   primaryCta: { label: "Book a Consultation", href: "#contact" },
   secondaryCta: { label: "View Portfolio", href: "#portfolio" },
@@ -28,14 +28,13 @@ export const about = {
   heading: "Spaces that feel right",
   paragraphs: [
     "Patina Design is a London-based interior design studio. The work is honest, balanced, and personal, built around how you actually live or host, not how spaces are supposed to look.",
-    "With a strong foundation in interior architecture and product design, we connect people to their environments through refined and purposeful design.",
-    "Every project begins with listening. We take the time to understand your daily rhythms, personal values, and individual style. From that, we create interiors that reflect who you are, spaces that are functional, aesthetic, and intuitively designed.",
+    "With roots in interior architecture and product design, every project begins with listening. We take the time to understand your daily rhythms, personal values, and individual style, then create interiors that reflect who you are.",
   ],
   founder: {
     name: "Aysel Selimbeyoglu",
     title: "Founder",
   },
-  credentials: ["Interiors of the Year 2024"],
+  credentials: [],
 };
 
 export const services = {
