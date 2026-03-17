@@ -27,11 +27,12 @@ import founderImage from "../assets/about/founder-illustration.jpeg";
           </p>
         ))}
         <div class="reveal mt-8" style="--reveal-delay: 0.3s">
-          <p class="font-heading font-medium text-copper-pot">{about.founder.name}</p>
+          <p class="font-signature text-[1.75rem] leading-tight text-indigo-batik">{about.founder.signatureName}</p>
+          <p class="mt-1 font-heading font-medium text-copper-pot">{about.founder.name}</p>
           <p class="text-sm text-indigo-batik/70">{about.founder.title}</p>
         </div>
       </div>
-      <div class="reveal-scale" style="--reveal-delay: 0.1s">
+      <div class="reveal-scale flex justify-end" style="--reveal-delay: 0.1s">
         <div class="about-image-wrapper">
           <Image
             src={founderImage}
@@ -50,22 +51,24 @@ import founderImage from "../assets/about/founder-illustration.jpeg";
 
 <style>
   .about-image-wrapper {
+    --shadow-offset: 18px;
     position: relative;
-    max-width: 85%;
-    overflow: hidden;
+    width: calc(85% - var(--shadow-offset));
     aspect-ratio: 3 / 4;
+    margin-right: var(--shadow-offset);
   }
 
   .about-image-wrapper::before {
     content: '';
     position: absolute;
-    top: 20px;
-    left: -20px;
+    bottom: calc(-1 * var(--shadow-offset));
+    right: calc(-1 * var(--shadow-offset));
     width: 100%;
     height: 100%;
     background: var(--color-pink-shadow);
     opacity: 0.35;
     border-radius: 1rem;
+    z-index: 0;
   }
 
   .about-image-wrapper img,
@@ -76,9 +79,13 @@ import founderImage from "../assets/about/founder-illustration.jpeg";
   }
 
   @media (max-width: 767px) {
+    .about-image-wrapper {
+      --shadow-offset: 12px;
+    }
+
     .about-image-wrapper::before {
-      left: 0;
-      top: 12px;
+      right: 0;
+      bottom: calc(-1 * var(--shadow-offset));
     }
   }
 </style>

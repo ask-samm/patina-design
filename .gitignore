@@ -13,3 +13,4 @@ web/dist/
 web/.vercel/
 web/.astro/
 .vercel
+inline-review.json
