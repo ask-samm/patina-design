@@ -17,18 +17,18 @@ export const nav = {
 };
 
 export const hero = {
-  headline: "Modern interiors shaped around how you live",
-  supporting: "A London studio creating homes, restaurants, and retail spaces that feel as good as they look.",
-  primaryCta: { label: "Book a Consultation", href: "#contact" },
+  headline: "Thoughtful design, timeless spaces guided by your story",
+  supporting: "Empathy in design. Simplicity in form. Care in every detail.",
+  primaryCta: { label: "Get in touch", href: "#contact" },
   secondaryCta: { label: "View Portfolio", href: "#portfolio" },
 };
 
 export const about = {
   label: "ABOUT",
-  heading: "Design rooted in how you live",
+  heading: "Spaces that feel right",
   paragraphs: [
     "Patina Design is a London-based interior design studio. The work is honest, balanced, and personal, built around how you actually live or host, not how spaces are supposed to look.",
-    "With a background in interior architecture and product design, every project begins with listening. We take time to understand your daily rhythms and personal style, then create interiors that genuinely reflect how you want to live.",
+    "With roots in interior architecture and product design, every project begins with listening. We take the time to understand your daily rhythms, personal values, and individual style, then create interiors that reflect who you are.",
   ],
   founder: {
     name: "Aysel Selimbeyoglu",
@@ -40,7 +40,7 @@ export const about = {
 
 export const services = {
   label: "SERVICES",
-  heading: "What we do",
+  heading: "How we can help",
   intro:
     "Patina Design covers every stage of your project, from the first creative conversation through to technical drawings, procurement, and final installation. You get one point of contact throughout.",
   items: [
@@ -81,7 +81,7 @@ export const services = {
 export const portfolio = {
   label: "PORTFOLIO",
   heading: "Selected work",
-  tagline: "Homes, restaurants, hotels, and retail spaces across the UK and internationally.",
+  tagline: "Residential, commercial, and hospitality projects across the UK and beyond.",
   projects: [
     {
       name: "Searcys at RICS",
