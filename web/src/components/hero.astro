@@ -43,17 +43,17 @@ import heroMoodboard from "../assets/hero/hero-moodboard.png";
       <!-- Image collage -->
       <div class="hero-entrance hero-collage" style="animation-delay: 0.2s">
         <div class="grid grid-cols-12 grid-rows-12 gap-3 md:gap-4">
-          {/* Bedroom — large, top-left */}
+          {/* Sketch — large, top-left */}
           <div class="col-span-7 row-span-6 overflow-hidden rounded-2xl">
             <Image
-              src={heroBedroom}
-              alt="Contemporary bedroom interior with artful styling"
-              class="h-full w-full object-cover"
+              src={heroSketch}
+              alt="Interior design concept sketch for a display unit"
+              class="h-full w-full object-cover object-[85%_25%]"
               widths={[300, 500, 800]}
               sizes="(max-width: 768px) 58vw, 29vw"
               loading="eager"
               fetchpriority="high"
-              quality={80}
+              quality={75}
             />
           </div>
           {/* Kitchen — tall, top-right */}
@@ -68,16 +68,16 @@ import heroMoodboard from "../assets/hero/hero-moodboard.png";
               quality={80}
             />
           </div>
-          {/* Sketch — wide, bottom-left */}
+          {/* Bedroom — bottom-left */}
           <div class="col-span-5 row-span-6 overflow-hidden rounded-2xl">
             <Image
-              src={heroSketch}
-              alt="Interior design concept sketch for a display unit"
-              class="h-full w-full object-cover object-[85%_25%]"
+              src={heroBedroom}
+              alt="Contemporary bedroom interior with artful styling"
+              class="h-full w-full object-cover"
               widths={[300, 500]}
               sizes="(max-width: 768px) 42vw, 21vw"
               loading="lazy"
-              quality={75}
+              quality={80}
             />
           </div>
           {/* Moodboard — bottom-right */}

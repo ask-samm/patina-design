@@ -1,7 +1,10 @@
 import { useState, type FormEvent } from "react";
 
+const GENERIC_ERROR = "Something went wrong. Please try again or email us at info@patinadesign.uk.";
+
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -11,6 +14,7 @@ export default function ContactForm() {
     const formspreeId = import.meta.env.PUBLIC_FORMSPREE_ID;
 
     if (!formspreeId) {
+      setErrorMsg(GENERIC_ERROR);
       setStatus("error");
       return;
     }
@@ -24,10 +28,18 @@ export default function ContactForm() {
       if (res.ok) {
         setStatus("success");
         (e.target as HTMLFormElement).reset();
+      } else if (res.status === 429) {
+        setErrorMsg("Too many requests. Please wait a moment and try again.");
+        setStatus("error");
+      } else if (res.status === 422) {
+        setErrorMsg("Please check your form fields and try again.");
+        setStatus("error");
       } else {
+        setErrorMsg(GENERIC_ERROR);
         setStatus("error");
       }
     } catch {
+      setErrorMsg("Unable to reach the server. Please check your connection and try again.");
       setStatus("error");
     }
   }
@@ -49,8 +61,7 @@ export default function ContactForm() {
     "mt-1.5 block w-full rounded-lg border border-indigo-batik/12 bg-white px-3.5 py-2.5 text-base text-indigo-batik outline-none transition-all duration-200 focus:border-copper-pot focus:ring-2 focus:ring-copper-pot focus:ring-offset-2";
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <p className="text-xs text-indigo-batik/60">* Required fields</p>
+    <form onSubmit={handleSubmit} noValidate className="space-y-4">
       <div>
         <label htmlFor="name" className="block text-xs uppercase tracking-[0.2em] font-medium text-indigo-batik/80">
           Name <span className="text-copper-pot">*</span>
@@ -103,8 +114,7 @@ export default function ContactForm() {
       </div>
       {status === "error" && (
         <p role="alert" className="text-sm text-copper-pot">
-          Something went wrong. Please try again or email us at{" "}
-          <a href="mailto:info@patinadesign.uk" className="underline">info@patinadesign.uk</a>.
+          {errorMsg}
         </p>
       )}
       <div className="flex justify-end">

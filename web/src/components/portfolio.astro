@@ -35,11 +35,10 @@ const displayProjects = portfolio.projects.slice(0, 8);
           return (
             <div
               class:list={[
-                "reveal-scale group relative overflow-hidden rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-copper-pot",
+                "reveal-scale group relative overflow-hidden rounded-2xl",
                 isFeatured ? "md:row-span-2" : "",
               ]}
               style={`--reveal-delay: ${i * 0.06}s`}
-              tabindex="0"
               role="figure"
               aria-label={project.name}
             >

@@ -135,14 +135,14 @@ export const portfolio = {
     {
       name: "Dior, Bodrum Yalikavak Marina",
       collaborator: "with Oral Architecture",
-      category: "Residential",
+      category: "Retail",
       image: "dior-bodrum",
       alt: "Open-air marina terrace with navy and white patterned loungers, teak decking, and parasol shading",
     },
     {
       name: "Chanel GUM Russia",
       collaborator: "with Oral Architecture",
-      category: "Residential",
+      category: "Retail",
       image: "chanel-gum",
       alt: "Chanel boutique lounge with tweed upholstery, mannequin displays, and woven-panel digital screen surround",
     },
@@ -156,14 +156,14 @@ export const portfolio = {
     {
       name: "MNKY HSE Lounge",
       collaborator: "with LXA",
-      category: "Residential",
+      category: "Hospitality",
       image: "mnky-hse-lounge",
       alt: "Moody restaurant dining room with copper leather booths, ornate metal screens, and warm ambient lighting",
     },
     {
       name: "DMR Canary Wharf",
       collaborator: "with LXA",
-      category: "Residential",
+      category: "Retail",
       image: "dmr-canary-wharf",
       alt: "Patek Philippe showroom with walnut panelling, glass display table, and mosaic tile accent wall",
     },
